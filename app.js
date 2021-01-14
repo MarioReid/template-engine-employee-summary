@@ -47,6 +47,8 @@ function addManager () {
 
 
         teamMembers.push(newManager)
+
+        controlCenter();
     })
 }
     
@@ -80,6 +82,7 @@ function addEngineer () {
 
 
         teamMembers.push(newEngineer)
+        controlCenter();
     })
 }
 function addIntern () {
@@ -112,6 +115,7 @@ function addIntern () {
         const newIntern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
 
         teamMembers.push(newIntern)
+        controlCenter();
     })
 }
 
