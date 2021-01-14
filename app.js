@@ -39,6 +39,55 @@ function addManager () {
             name: "officeNumber",
             message: "What is the office number of the manager?"
         }
+    ])
+
+function addEngineer () {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: "engineerName",
+            message: "What is the name of the manager?"
+        },
+        {
+            type: 'input',
+            name: "engineerId",
+            message: "What is the id of the manager?"
+        },
+        {
+            type: 'input',
+            name: "engineerEmail",
+            message: "What is the email of the manager?"
+        },
+        {
+            type: 'input',
+            name: "engineerGithub",
+            message: "What is the github address of the engineer?"
+        }
+    ])
+
+function addIntern () {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: "internName",
+            message: "What is the name of the manager?"
+        },
+        {
+            type: 'input',
+            name: "internId",
+            message: "What is the id of the manager?"
+        },
+        {
+            type: 'input',
+            name: "internEmail",
+            message: "What is the email of the manager?"
+        },
+        {
+            type: 'input',
+            name: "internNumber",
+            message: "What is the school of the intern?"
+        }
+
 
     ]).then(answers => {
 
