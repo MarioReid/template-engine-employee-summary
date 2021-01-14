@@ -40,23 +40,32 @@ function addManager () {
             message: "What is the office number of the manager?"
         }
     ])
+    .then(answers => {
 
+        // create a new manager object
+        const newManager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
+
+
+        teamMembers.push(newManager)
+    })
+}
+    
 function addEngineer () {
     inquirer.prompt([
         {
             type: 'input',
             name: "engineerName",
-            message: "What is the name of the manager?"
+            message: "What is the name of the engineer?"
         },
         {
             type: 'input',
             name: "engineerId",
-            message: "What is the id of the manager?"
+            message: "What is the id of the engineer?"
         },
         {
             type: 'input',
             name: "engineerEmail",
-            message: "What is the email of the manager?"
+            message: "What is the email of the engineer?"
         },
         {
             type: 'input',
@@ -64,55 +73,78 @@ function addEngineer () {
             message: "What is the github address of the engineer?"
         }
     ])
+    .then(answers => {
 
+        // create a new manager object
+        const newEngineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+
+
+        teamMembers.push(newEngineer)
+    })
+}
 function addIntern () {
     inquirer.prompt([
         {
             type: 'input',
             name: "internName",
-            message: "What is the name of the manager?"
+            message: "What is the name of the intern?"
         },
         {
             type: 'input',
             name: "internId",
-            message: "What is the id of the manager?"
+            message: "What is the id of the intern?"
         },
         {
             type: 'input',
             name: "internEmail",
-            message: "What is the email of the manager?"
+            message: "What is the email of the intern?"
         },
         {
             type: 'input',
-            name: "internNumber",
+            name: "internSchool",
             message: "What is the school of the intern?"
         }
 
 
     ]).then(answers => {
 
-        // create a new manager object
-        const newManager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
+        // create a new intern object
+        const newIntern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
 
-
-        teamMembers.push(newManager)
-
-
-
-        /////////// This code should be attached after pushing the last employee
-        // const renderedHTML = render(teamMembers);
-
-        // fs.writeFileSync(outputPath, renderedHTML);
-        //////////
-
-
+        teamMembers.push(newIntern)
     })
-
 }
 
+function controlCenter () {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "employeeType", 
+            message: "Which employee type would you like to add? ",
+            choices: ["Manager", "Engineer", "Intern", "Exit"]
+        }
+    ])
+    .then(answers => {
+        if(answers.employeeType == " Manager") {
+            addManager();
+        }
+        else if(answers.employeeType == "Engineer") {
+            addEngineer();
+        }
+        else if(answers.employeeType === "Intern"){
+            addIntern();
+        }
+        else {
+            ///////// This code should be attached after pushing the last employee
+            const renderedHTML = render(teamMembers);
 
-addManager();
+            fs.writeFileSync(outputPath, renderedHTML);
+            ////////
+        }
+    })
+}
 
+controlCenter();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
