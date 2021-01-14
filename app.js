@@ -125,7 +125,7 @@ function controlCenter () {
         }
     ])
     .then(answers => {
-        if(answers.employeeType == " Manager") {
+        if(answers.employeeType == "Manager") {
             addManager();
         }
         else if(answers.employeeType == "Engineer") {
