@@ -13,7 +13,7 @@ test('getRole() should return "Manager"', () => {
   expect(e.getRole()).toBe(testValue);
 
   const manager = {
-    role = "Manager"
+    role: "Manager"
   }
 });
 
