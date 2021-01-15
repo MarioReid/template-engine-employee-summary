@@ -2,7 +2,7 @@
 
   [![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-  ![Demo of README-generator](https://drive.google.com/file/d/1aTmb3vhj_Pg0p17RLkjKN6354NyWkKUY/view)
+  ![Demo of README-generator](EmployeeSummary.gif)
   ## Description
   
   This project was to build a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. 
